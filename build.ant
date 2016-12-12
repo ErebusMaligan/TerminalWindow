@@ -1,6 +1,0 @@
-<project basedir="." name="TerminalWindow"> 
-	<property name="CommonBuild" value="../ant/common.ant"/> 
-	<property name="this.project" value="${ant.project.name}"/> 
-	<ant inheritAll="true" antfile="${CommonBuild}" target="libjar"/>
-	<ant inheritAll="true" antfile="${CommonBuild}" target="deployedLib"/>
-</project>

@@ -1,7 +1,5 @@
 apply plugin: 'java'
 
-def grp = '1' //this is just so tasks here show up at the top of the list when sorted alphabetically
-
 dependencies {
 	compile files( '../libs/JUtils.jar' )
 }
@@ -13,18 +11,5 @@ ext {
 	jarPathPrefix = "./"
 }
 
-apply from: '../gradle/common.gradle'
-
-//builds everything for packaged release
-task buildAll( dependsOn: 'zipReleaseFull' ) {
-	group = grp
-	finalizedBy 'buildLibJar'
-	finalizedBy	'buildDeployedLibJar'
-}
-
-//this one doesn't build the javadocs at all, or zip the source - mostly not building the javadocs saves a ton of time
-task buildQuick( dependsOn: 'buildRelease' ) {
-	group = grp
-	finalizedBy 'buildLibJar'
-	finalizedBy	'buildDeployedLibJar'
-}
+//The dependencies and ext block MUST come before this script call - otherwise the ext block in common won't know how to set some properties
+apply from: '../gradle/stdlib.gradle'

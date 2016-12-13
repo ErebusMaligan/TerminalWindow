@@ -35,8 +35,13 @@ public class PrimaryApplication {
 			p.load( new FileInputStream( new File( "app.props" ) ) );
 		} catch ( IOException e ) {
 			e.printStackTrace();
+			p = null;
 		}
-		m.OS = p.getProperty( "OS" ).equals( "WINDOWS" ) ? OSTerminalSettings.WINDOWS : OSTerminalSettings.LINUX;
+		if ( p != null ) {
+			m.OS = p.getProperty( "OS" ).equals( "WINDOWS" ) ? OSTerminalSettings.WINDOWS : OSTerminalSettings.LINUX;
+		} else {
+			m.OS = OSTerminalSettings.WINDOWS;
+		}
 		String cwd = null;
 //		String cwd = "D:\\RIPS\\ISO";
 		if ( args.length == 1 ) {

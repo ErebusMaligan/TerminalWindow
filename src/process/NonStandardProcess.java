@@ -30,7 +30,7 @@ public abstract class NonStandardProcess extends WritableProcess {
 	
 	public void sendMessage( String s ) {
 		for ( ProcessStreamSiphon siphon : ProcessManager.getInstance().getSiphons( name ) ) {
-			siphon.skimMessage( name, s );
+			siphon.skimMessage( name, filterASCIICodes( s ) );
 		}
 	}
 

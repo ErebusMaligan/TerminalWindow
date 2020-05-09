@@ -104,7 +104,7 @@ public class StandardProcess extends WritableProcess {
 				try {
 					while ( !processKilled && ( line = reader.readLine() ) != null ) {
 						for ( ProcessStreamSiphon siphon : ProcessManager.getInstance().getSiphons( name ) ) {
-							siphon.skimMessage( name, line );
+							siphon.skimMessage( name, filterASCIICodes( line ) );
 						}
 						Thread.sleep( 1 );
 					}

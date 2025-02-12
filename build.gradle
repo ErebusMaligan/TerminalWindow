@@ -5,8 +5,13 @@ dependencies {
 }
 
 ext {
+	includeLibs = true
 	copyLibs = true
+	deployedProjDir = "deployed/Tools"
+	deployedLibDir = "./libs"
 	libDest = "deployed/Tools/libs"
+	jarPathPrefix = "./libs/"
+	
 	mainClass = "application.PrimaryApplication"
 	jarPathPrefix = "./"
 }

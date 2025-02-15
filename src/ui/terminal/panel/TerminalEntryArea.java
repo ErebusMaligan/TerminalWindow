@@ -89,7 +89,7 @@ public class TerminalEntryArea extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed( KeyEvent e ) {
-		if ( ( e.getModifiers() & KeyEvent.CTRL_MASK ) != 0 ) {
+		if ( ( e.getModifiersEx() & KeyEvent.CTRL_DOWN_MASK ) != 0 ) {
 			if ( e.getKeyCode() == KeyEvent.VK_C ) {
 				try {
 					TerminalProcess p = ( (TerminalProcess)ProcessManager.getInstance().getProcessByName( parent.getProcessName() ) ); //needs to be stored locally otherwise restart will fail because process is no longer known by manager
